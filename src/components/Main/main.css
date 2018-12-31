@@ -1,0 +1,19 @@
+.main{
+    min-height: 600px;
+}
+
+.nav-left{
+    margin-top: 50px;
+    text-align: left;
+}
+
+.left-bar ul{
+    list-style-type: none;
+    padding:0;
+    border-bottom: 1px solid #c7c8ca;
+    padding-bottom: 20px;
+}
+.left-bar nav li{
+    padding: 3px 3px;
+    cursor: pointer;
+}

@@ -1,0 +1,13 @@
+header{
+    background: #333;
+    padding: 10px 0;
+}
+
+header .logo {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.cart{
+    color: #fff;
+}

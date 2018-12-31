@@ -1,0 +1,17 @@
+.banner{
+    height: 50%;
+}
+
+.banner img{
+    height: 200px;
+}
+
+.breadcrumb-banner{
+    padding: 30px 10px 10px 0px;
+    border-bottom: 1px solid #ddd;
+}
+
+.breadcrumb-banner span{
+    font-size: 25px;
+}
+
