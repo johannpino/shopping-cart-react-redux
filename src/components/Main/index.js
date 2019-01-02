@@ -10,7 +10,7 @@ const Main = () => {
                 <div className="col-12 col-md-3 left-bar main ">
                     <LeftBar />       
                 </div>
-                <div className="col bg-light  main-content">
+                <div className="col main-content">
                     <Content />
                 </div>         
             </div>

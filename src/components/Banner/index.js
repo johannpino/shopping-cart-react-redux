@@ -10,7 +10,7 @@ const Banner = () => {
             </div>
             <div className="container">
                 <div className="text-left m-0 pl-0 breadcrumb-banner">
-                    home / <span className="banner">Iphone</span>
+                    home / Iphone / <span className="banner">Iphone XS</span>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ const LeftBar = () => {
                 <li> Iphone 8s Plus </li>
                 <li> Iphone X  </li>
                 <li> Iphone XR </li>
-                <li> Iphone XS Mlix </li>
+                <li> Iphone XS Max </li>
                 <li> Iphone XS </li>
             </ul>
         </nav>
