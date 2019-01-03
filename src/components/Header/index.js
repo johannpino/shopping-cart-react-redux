@@ -1,7 +1,15 @@
 import React from 'react';
 import './header.css'
+import ShoppingCart from './ShoppingCart'
 
 const Header = () => {
+    
+    const handleOnCart = () =>{
+        document.querySelector('.cart-container').classList.toggle('active')
+    }
+    const handleOnClose = () => {
+        document.querySelector('.cart-container').classList.remove('active')
+    }
     return (
         <div>
             <header>
@@ -11,13 +19,16 @@ const Header = () => {
                             Shopping Cart
                         </div>
                         <div className="col-sm-12 col-md-6 col-lg-2 ml-auto">
-                            <div className="text-center cart">
+                            <div className="text-center cart" onClick={handleOnCart}>
                                 Cart (3): $ 10.000 
                             </div>
                         </div>                   
                     </div>              
                 </div>
             </header>
+            <div className="cart-container d-flex justify-content-center align-items-center">
+                <ShoppingCart handleOnClose={handleOnClose} />
+            </div>
         </div>
     );
 };

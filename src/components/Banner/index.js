@@ -4,8 +4,8 @@ import './banner.css'
 
 const Banner = () => {
     return (
-        <div className="">
-            <div className="h-20 w-100 bg-light banner">
+        <div className=" banner">
+            <div className="h-20 w-100 bg-light">
                 <img className="w-100" src={banner} alt="Banner Shopping Cart" />         
             </div>
             <div className="container">

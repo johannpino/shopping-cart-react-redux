@@ -1,33 +1,42 @@
 import React from 'react';
-import iphoneXs64 from '../../assets/img/apple-iphone-xs-grey-02.png'
+import ProductList from './ProductList';
+
+const products = [
+    {
+       id: '1', 
+       name: 'Iphone XS Space Gray 64GB',
+       price: 1000
+    },
+    {
+       id: '2', 
+       name: 'Iphone XS Space Gray 64GB',
+       price: 1200
+    },
+    {
+       id: '3', 
+       name: 'Iphone XS Space Gray 512GB',
+       price: 1500
+    },
+
+]
 
 const Content = () => {
     return (
         <div>
-            <div className="product-main col col-md-4 text-center">
-                <img src={iphoneXs64} alt={iphoneXs64}/>
-                <div className="">
-                    <h5>Iphone XS Space Gray 64GB</h5>
-                    <p> $999.990 </p>
-                    <button className="btn btn-link"> Agregar </button>
-                </div>
-            </div>
-            <div className="product-main col col-md-4 text-center">
-                <img src={iphoneXs64} alt={iphoneXs64}/>
-                <div className="">
-                    <h5>Iphone XS Space Gray 256GB</h5>
-                    <p> $ 1.149.990 </p>
-                    <button className="btn btn-link"> Agregar </button>
-                </div>
-            </div>
-            <div className="product-main col col-md-4 text-center">
-                <img src={iphoneXs64} alt={iphoneXs64}/>
-                <div className="">
-                    <h5>Iphone XS Space Gray 512GB</h5>
-                    <p> $ 1.349.990 </p>
-                    <button className="btn btn-link"> Agregar </button>
-                </div>
-            </div>
+            {
+                products && products.map( product => {
+                    return (
+                        <ProductList 
+                            id={product.id} 
+                            name={product.name}
+                            price={product.price}
+                            key={product.id}
+                            product={product}
+                        />
+                            
+                    )
+                })
+            }
         </div>
     );
 };
