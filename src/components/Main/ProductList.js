@@ -1,9 +1,8 @@
-import React from 'react';
-import iphoneXs64 from '../../assets/img/apple-iphone-xs-grey-02.png'
+import React from 'react'
 import {addToCart} from '../../redux/actions'
 import { connect } from 'react-redux';
 
-const ProductList = ({id,name,price, product, onAddToCart}) => {
+const ProductList = ({name,price, product, img, onAddToCart}) => {
 
     const handleAddToCart = (product) => {
         onAddToCart(product)
@@ -11,7 +10,7 @@ const ProductList = ({id,name,price, product, onAddToCart}) => {
 
     return (
         <div className="product-main col col-md-4 text-center">
-            <img src={iphoneXs64} alt={iphoneXs64}/>
+            <img src={img} alt={name}/>
             <div className="">
                 <h5>{name}</h5>
                 <p>USD ${price} </p>

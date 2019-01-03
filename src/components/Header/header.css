@@ -31,3 +31,7 @@ header .logo {
 .cart-container.active{
     right: 0;
 }
+.cart-img img{
+    width: 50px;
+
+}
