@@ -1,55 +1,42 @@
-import React, { Component } from 'react'
-import store from '../../redux/store'
+import React from 'react'
 import {removeFromCart} from '../../redux/actions'
+import { connect } from 'react-redux';
 
-class ShoppingCart extends Component {
-    constructor(){
-        super()
-        this.state = {
-            cart: []
-        }
+const ShoppingCart = (props) =>  {
 
-        store.subscribe(()=> {
-            this.setState({
-                cart: store.getState().cart
-            })
-        })
-
-    }
-
-    removeFromCart = (product) => {
-        store.dispatch(
-            removeFromCart(product)
-        )
-    }
-
-
-    render() {
         return (
             <div className="container text-center">
                 <table className="table">
                     <tbody>
                 {
-                    this.state.cart.map(product =>
+                    props.cart.map(product =>
                         <tr key={product.id}>
                             <td>{product.name}</td>
                             <td>{product.price}</td>
-                            <td><button className="btn btn-danger" onClick={() => this.removeFromCart(product.id)} >X</button></td>
+                            <td><button className="btn btn-danger" onClick={() => props.removeFromCart(product.id)} >X</button></td>
                         </tr>
                     )
+                    
                 }
                     
                     <tr>
                         <td>total USD :</td>
-                        <td>${this.state.cart.reduce((sum,product) => sum + Number(product.price), 0 )}</td>
+                        <td>${props.cart.reduce((sum,product) => sum + Number(product.price), 0 )}</td>
                         <td><button>Pagar</button></td>
                     </tr>
                     </tbody>
                 </table>
-                <button onClick={this.props.handleOnClose}>Seguir Comprando</button>
+                <button onClick={props.handleOnClose}>Seguir Comprando</button>
             </div>
-        );
-    }
+        )
 }
 
-export default ShoppingCart;
+const mapDispatchToProps = dispatch => (
+    {
+        removeFromCart: (product) => {
+            dispatch(removeFromCart(product))
+        }
+    }
+)
+
+export default connect(null,mapDispatchToProps)(ShoppingCart);

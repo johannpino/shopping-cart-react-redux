@@ -3,12 +3,13 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import Banner from './components/Banner'
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-          <Header />
+          <Header cart={this.props.cart} />
           <Banner />
           <Main />
           <Footer />
@@ -17,4 +18,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => (    
+  {
+      cart: state.cart
+  }
+)
+
+export default connect(mapStateToProps)(App);

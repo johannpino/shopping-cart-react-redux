@@ -1,14 +1,12 @@
 import React from 'react';
 import iphoneXs64 from '../../assets/img/apple-iphone-xs-grey-02.png'
-import store from '../../redux/store'
 import {addToCart} from '../../redux/actions'
+import { connect } from 'react-redux';
 
-const ProductList = ({id,name,price, product}) => {
+const ProductList = ({id,name,price, product, onAddToCart}) => {
 
     const handleAddToCart = (product) => {
-        store.dispatch(
-            addToCart(product)
-        )
+        onAddToCart(product)
     }
 
     return (
@@ -23,4 +21,10 @@ const ProductList = ({id,name,price, product}) => {
     );
 };
 
-export default ProductList;
+const mapDispatchToProps = dispatch => (
+    {
+        onAddToCart: payload => dispatch(addToCart(payload))
+    }
+)
+
+export default connect(null, mapDispatchToProps)(ProductList);
