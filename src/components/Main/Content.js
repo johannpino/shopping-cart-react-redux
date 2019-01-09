@@ -1,29 +1,8 @@
 import React from 'react';
 import ProductList from './ProductList';
+import { connect } from 'react-redux';
 
-const products = [
-    {
-       id: '1', 
-       name: 'Iphone XS Space Gray 64GB',
-       price: 1000,
-       img: 'https://d3tctca4ed2xlu.cloudfront.net/images/spree/images/17507/attachments/large/Apple_iPhoneXSMax_Hero.png?1538749685'
-    },
-    {
-       id: '2', 
-       name: 'Iphone XS Space Gray 64GB',
-       price: 1200,
-       img: 'https://d3tctca4ed2xlu.cloudfront.net/images/spree/images/17507/attachments/large/Apple_iPhoneXSMax_Hero.png?1538749685'
-    },
-    {
-       id: '3', 
-       name: 'Iphone XS Space Gray 512GB',
-       price: 1500,
-       img: 'https://d3tctca4ed2xlu.cloudfront.net/images/spree/images/17507/attachments/large/Apple_iPhoneXSMax_Hero.png?1538749685'
-    },
-
-]
-
-const Content = () => {
+const Content = ({products}) => {
     return (
         <div>
             {
@@ -45,4 +24,10 @@ const Content = () => {
     );
 };
 
-export default Content;
+const mapStateToPros = state => (
+    {
+        products: state.products
+    }
+)
+
+export default connect(mapStateToPros)(Content);

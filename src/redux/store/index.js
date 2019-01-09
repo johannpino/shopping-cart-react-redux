@@ -1,7 +1,22 @@
-import {createStore} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
+import thunk from 'redux-thunk'
+
+const logger = ({ getState }) => {
+    return next => action => {
+      console.log('will dispatch', action)
+      const returnValue = next(action)
+      console.log('state after dispatch', getState())
+      return returnValue
+    }
+}
 
 const reducer = (state, action) =>{
     switch (action.type) {
+        case "REPLACE_PRODUCTS":
+        return {
+            ...state,
+            products: action.products
+        }
         case "ADD_TO_CART":
             return {
                 ...state,
@@ -17,4 +32,6 @@ const reducer = (state, action) =>{
     }
 }
 
-export default createStore(reducer, {cart: []}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() )
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+export default createStore(reducer, {cart: [], products:[]}, composeEnhancers(applyMiddleware(thunk)) )

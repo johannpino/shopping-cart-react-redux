@@ -5,6 +5,9 @@ import store from './redux/store'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { loadProducts } from './redux/actions';
+
+store.dispatch(loadProducts())
 
 const rootApp = <Provider store={store}>
                     <App />
