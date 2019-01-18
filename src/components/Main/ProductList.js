@@ -2,7 +2,7 @@ import React from 'react'
 import {addToCart} from '../../redux/actions'
 import { connect } from 'react-redux';
 
-const ProductList = ({name,price, product, img, onAddToCart}) => {
+export const ProductList = ({name,price, product, img, onAddToCart}) => {
 
     const handleAddToCart = (product) => {
         onAddToCart(product)
